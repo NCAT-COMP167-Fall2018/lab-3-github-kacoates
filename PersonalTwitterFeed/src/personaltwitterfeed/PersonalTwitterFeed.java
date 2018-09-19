@@ -34,12 +34,13 @@ public class PersonalTwitterFeed {
         int numTweets = 0;
         
         while(numTweets < (MAX_NUMBER_TWEETS - 1)) {
-            tweets[numTweets] = keyboard.nextLine();
+            tweets[numTweets] = keyboard.nextLine() + getCurrnentTimeStamp();
             numTweets++;
             
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
             for(int i = 0; i < numTweets; i++) {
                 System.out.println("- " + tweets[i]);
+                
             }
             
             System.out.println();
@@ -47,11 +48,23 @@ public class PersonalTwitterFeed {
             System.out.println();
             System.out.println();
             
+            
+            
             if(numTweets < (MAX_NUMBER_TWEETS - 1))
                 System.out.println("Enter your next tweet:");
         }
         
         System.out.println("Your twitter feed is full");
     }
+    
+    public static String getCurrnentTimeStamp(){
+        String WhatsToday = ("\n yyyy-MM-dd HH:mm:ssZ");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(WhatsToday);
+        
+       return simpleDateFormat.format(new Date());
+
+        
+    }
+    
     
 }
